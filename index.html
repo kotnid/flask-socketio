@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>hamburger</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function(){
+            var url = 'http://127.0.0.1';
+            var port = '5000';
+            var socket = io.connect(url + ':' + port);
+
+            socket.on('connect' , function(){
+                socket.emit('connect_event' , {data : 'connect!'});
+            });
+
+            socket.on('server_response' , function(msg){
+                $('#log').append('<br>' + $('<div/>').text('Received #' + ': ' + msg.data).html())
+            });
+
+            $('form#emit').submit(function(event){
+                socket.emit('client_event' , {data:$('#emit_data').val()});
+                return false;
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <h1>dwd</h1>
+    <form id="emit" method="POST" action='#'>
+        <textarea cols="50" rows="5" name="emit_data" id="emit_data" placeholder="Code"></textarea>
+        <input type="submit" value="Run">
+    </form>
+    <div id='log'></div>
+</body>    
+</html>
