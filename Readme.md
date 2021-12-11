@@ -1,5 +1,5 @@
 # flask-socketio #
-
+[![CodeFactor](https://www.codefactor.io/repository/github/kotnid/flask-socketio/badge)](https://www.codefactor.io/repository/github/kotnid/flask-socketio)
 ## Aim ##
 website auto update view from [ani.gamer.com.tw](https://ani.gamer.com.tw/)
  
