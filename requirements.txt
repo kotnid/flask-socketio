@@ -1,0 +1,6 @@
+beautifulsoup4==4.10.0
+Flask==2.0.1
+Flask_SocketIO==4.3.1
+pymongo==3.11.4
+Requests==2.26.0
+requests2==2.16.0
