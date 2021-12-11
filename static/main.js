@@ -11,6 +11,10 @@ $(document).ready(function(){
         $('#log').append('<br>' + $('<div/>').text('Received #' + ': ' + msg.data).html())
     });
 
+    socket.on('data_update' , function(msg){
+        $('#log2').append('<br>' + $('<div/>').text(msg.date + ' - Data update' + ': ' + msg.name + ' views is at ' + msg.view + ' now~').html())
+    })
+
     $('form#emit').submit(function(event){
         socket.emit('client_event' , {data:$('#emit_data').val()});
         return false;
