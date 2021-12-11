@@ -15,7 +15,7 @@ $(document).ready(function(){
         $('#log2').append('<br>' + $('<div/>').text(msg.date + ' - Data update' + ': ' + msg.name + ' views is at ' + msg.view + ' now~').html())
     })
 
-    $('form#emit').submit(function(event){
+    $('form#emit').submit(function(){
         socket.emit('client_event' , {data:$('#emit_data').val()});
         return false;
     });
