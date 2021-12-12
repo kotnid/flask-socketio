@@ -75,7 +75,7 @@ def background_thread():
 
             if len(list(details)) == 3:
                 if "萬" in list(details)[2].string:
-                    num = int(float(list(details)[2].string.replace("萬","")))*10000
+                    num = int(float(list(details)[2].string.replace("萬",""))*10000)
                     upload(list(details)[1].string,num)
                 elif "統計中" in list(details)[2].string:
                     num = 0
@@ -87,7 +87,7 @@ def background_thread():
 
             if len(list(details)) == 2:
                 if "萬" in list(details)[1].string:
-                    num = int(float(list(details)[1].string.replace("萬","")))*10000
+                    num = int(float(list(details)[1].string.replace("萬",""))*10000)
                     upload(list(details)[0].string,num)
                 elif "統計中" in list(details)[1].string:
                     num = 0 
@@ -97,9 +97,10 @@ def background_thread():
                     upload(list(details)[0].string,num)
 
     while True:
-        socketio.sleep(120)
         info("run web scraping")
         main()
+        socketio.sleep(120)
+        
 
 
 @app.route('/')
