@@ -146,4 +146,4 @@ if __name__ == '__main__':
     db = cluster["anime_view"]
     collection = db["anime_view"]
 
-    socketio.run(app , debug=True ,  host='127.0.0.1' , port=5000)
+    socketio.run(app ,  host='127.0.0.1' , port=5000)
