@@ -1,6 +1,7 @@
 # flask-socketio #
 [![CodeFactor](https://www.codefactor.io/repository/github/kotnid/flask-socketio/badge)](https://www.codefactor.io/repository/github/kotnid/flask-socketio)
 [![wakatime](https://wakatime.com/badge/user/8c053ba6-8018-4b64-97db-3521376f3796/project/24fd01ff-8ca5-45df-8d79-7d35ba2cdc6e.svg)](https://wakatime.com/badge/user/8c053ba6-8018-4b64-97db-3521376f3796/project/24fd01ff-8ca5-45df-8d79-7d35ba2cdc6e)
+
 ## Aim ##
 website auto update view from [ani.gamer.com.tw](https://ani.gamer.com.tw/)
  
