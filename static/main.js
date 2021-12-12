@@ -13,10 +13,26 @@ $(document).ready(function(){
 
     socket.on('data_update' , function(msg){
         $('#log2').append('<br>' + $('<div/>').text(msg.date + ' - Data update' + ': ' + msg.name + ' views is at ' + msg.view + ' now~').html())
-    })
+    });
+
+    socket.on('data_search' , function(msg){
+        if(msg.type == "0"){
+            $('#search_log').empty();
+            $('#search_log').append('<br>' + $('<div/>').text('search fail').html());
+        }else{
+            $('#search_log').empty();
+            $('#search_log').append('<br>' + $('<div/>').text(msg.data).html());
+        }
+    });
+
 
     $('form#emit').submit(function(){
         socket.emit('client_event' , {data:$('#emit_data').val()});
+        return false;
+    });
+
+    $('form#search').submit(function(){
+        socket.emit('client_event_search' , {data:$('#search_name').val()});
         return false;
     });
 })

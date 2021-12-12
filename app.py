@@ -26,12 +26,7 @@ thread = None
 thread_lock = Lock()
 
 def background_thread():
-    cluster = MongoClient(
-        config['MONGODB']['CLIENT']
-    )
-    info(cluster.server_info())
-    db = cluster["anime_view"]
-    collection = db["anime_view"]
+    
 
     header = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36',
@@ -97,7 +92,7 @@ def background_thread():
                     upload(list(details)[0].string,num)
 
     while True:
-        socketio.sleep(45)
+        socketio.sleep(300)
         info("run web scraping")
         main()
         
@@ -125,5 +120,30 @@ def connected_msg(msg):
     info("connection receive : {msg}")
     emit('server_response' , {'data': msg['data']})
 
+@socketio.on('client_event_search')
+def client_msg(msg):
+    info(f"data request received : {msg}")
+    myquery = {"_id" : msg['data']}
+        
+       
+    if collection.count_documents(myquery) == 0:
+        info(f"data request result : {msg} - fail")
+        with app.test_request_context():
+            socketio.emit('data_search' ,{'type' : "0"} )
+    else:
+        user = collection.find_one(myquery)
+        view_list = user["view"]    
+        info(f"data request result : {msg} - success")
+        with app.test_request_context():
+            socketio.emit('data_search' ,{'type' : "1" , 'data' :view_list} )
+
+
 if __name__ == '__main__':
+    cluster = MongoClient(
+        config['MONGODB']['CLIENT']
+    )
+    info(cluster.server_info())
+    db = cluster["anime_view"]
+    collection = db["anime_view"]
+
     socketio.run(app , debug=True ,  host='127.0.0.1' , port=5000)

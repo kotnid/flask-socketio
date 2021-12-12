@@ -1,4 +1,4 @@
-# flask-socketio #
+# view tracker #
 [![CodeFactor](https://www.codefactor.io/repository/github/kotnid/flask-socketio/badge)](https://www.codefactor.io/repository/github/kotnid/flask-socketio)
 [![wakatime](https://wakatime.com/badge/user/8c053ba6-8018-4b64-97db-3521376f3796/project/24fd01ff-8ca5-45df-8d79-7d35ba2cdc6e.svg)](https://wakatime.com/badge/user/8c053ba6-8018-4b64-97db-3521376f3796/project/24fd01ff-8ca5-45df-8d79-7d35ba2cdc6e)
 
@@ -9,8 +9,27 @@ website auto update view from [ani.gamer.com.tw](https://ani.gamer.com.tw/)
 <br>
 <br>
 
+## Recent Updates - 12/12/21 ##
+### major update ###
+- change website design 
+- add data searching function
 
-## How to use ##
+
+<br> 
+
+### minor update ###
+- improve logging 
+- bug fixed : data ignore thousand 
+- web scraping every 5 min 
+- connect to database when start 
+- remove unused function 
+
+Recent changes : [link](https://github.com/kotnid/flask-socketio/tree/master/doc)
+
+<br>
+<br>
+
+## How To Use ##
 - install the packages required 
 ```
 pip install -r requirements.txt
@@ -29,7 +48,7 @@ python app.py
 <br>
 
 
-## Work in progess ##
+## Work In Progess ##
 - deployment 
 - better website design
 - data searching 
