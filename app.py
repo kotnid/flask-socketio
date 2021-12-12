@@ -97,9 +97,10 @@ def background_thread():
                     upload(list(details)[0].string,num)
 
     while True:
+        socketio.sleep(45)
         info("run web scraping")
         main()
-        socketio.sleep(120)
+        
         
 
 
@@ -125,4 +126,4 @@ def connected_msg(msg):
     emit('server_response' , {'data': msg['data']})
 
 if __name__ == '__main__':
-    socketio.run(app , host='127.0.0.1' , port=5000)
+    socketio.run(app , debug=True ,  host='127.0.0.1' , port=5000)
